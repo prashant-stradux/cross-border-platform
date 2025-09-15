@@ -1,0 +1,21 @@
+<div class="p-4 border rounded bg-white">
+  <form [formGroup]="form" (ngSubmit)="$event.preventDefault()">
+    <label class="block text-sm">Invoice Amount (USD)</label>
+    <input formControlName="amount" type="number" class="w-full p-2 mt-1 border rounded" />
+
+    <label class="block text-sm mt-3">Pricing model</label>
+    <select formControlName="pricingModel" class="w-full p-2 mt-1 border rounded">
+      <option value="tier">Flat / Tiered (Skydo)</option>
+      <option value="zeromargin">Zero Forex Markup (Mulya)</option>
+    </select>
+
+    <div class="mt-4 text-sm">Live FX rate: <strong>{{ baseRate | number:'1.2-2' }}</strong></div>
+
+    <div class="mt-4 p-3 bg-gray-50 rounded">
+      <div class="text-xs">You'll receive in Bank</div>
+      <div class="text-2xl font-semibold">₹ {{ result.net | number:'1.2-2' }}</div>
+      <div class="mt-2 text-sm text-gray-600">Fee: ₹ {{ result.fee | number:'1.2-2' }} • GST: ₹ {{ result.gst | number:'1.2-2' }}</div>
+      <div class="mt-2 text-sm text-green-600">Estimated annual saving: ₹ {{ result.savedAgainstBank | number:'1.2-2' }}</div>
+    </div>
+  </form>
+</div>
