@@ -1,6 +1,6 @@
 <header class="bg-white shadow-sm sticky top-0 z-50">
   <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-    <a class="flex items-center gap-3" href="#">
+    <a class="flex items-center gap-3" routerLink="/">
       <div class="h-12 w-12 rounded-full bg-gradient-to-tr from-indigo-600 via-purple-500 to-pink-500 shadow-lg flex items-center justify-center text-3xl font-extrabold animate-pulse">
         <span class="drop-shadow-lg">S</span>
       </div>
@@ -20,14 +20,14 @@
     </a>
 
     <nav class="hidden md:flex gap-6 items-center">
-      <a class="hover:underline" href="#">Pricing</a>
+      <a class="hover:underline" routerLink="/">Pricing</a>
       <a class="hover:underline" href="#">Integrations</a>
       <a class="hover:underline" href="#">FAQs</a>
     </nav>
 
     <div class="flex items-center gap-3">
-      <a class="px-4 py-2 rounded border" href="#">Login</a>
-      <a class="px-4 py-2 rounded bg-indigo-600 text-white" href="#">Get Started</a>
+      <a class="px-4 py-2 rounded border" routerLink="/login">Login</a>
+      <a class="px-4 py-2 rounded bg-indigo-600 text-white" routerLink="/signup">Get Started</a>
       <button class="md:hidden ml-2" (click)="toggle()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -38,7 +38,7 @@
 
   <div *ngIf="isOpen" class="md:hidden bg-white border-t">
     <div class="p-4 flex flex-col gap-3">
-      <a href="#">Pricing</a>
+      <a routerLink="/">Pricing</a>
       <a href="#">Integrations</a>
       <a href="#">FAQs</a>
     </div>
