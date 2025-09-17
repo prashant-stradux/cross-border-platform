@@ -1,0 +1,13 @@
+.sidenav { width: 300px; padding: 24px 20px; border-right: 1px dashed #e5e7eb; }
+.brand { height: 40px; display: flex; align-items: center; }
+.dot { width: 28px; height: 28px; background: #6d28d9; border-radius: 8px; display: inline-block; }
+.profile { background: #f3f4f6; border-radius: 16px; padding: 16px; margin: 16px 0 28px; }
+.name { font-weight: 700; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.email { margin-top: 6px; font-size: 14px; color: #6b7280; }
+.section { font-weight: 700; letter-spacing: .02em; color: #111827; margin-bottom: 12px; }
+.menu { display: flex; flex-direction: column; gap: 8px; }
+.item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 12px; color: #374151; text-decoration: none; background: transparent; border: 0; cursor: pointer; text-align: left; }
+.item:hover { background: #f3f4f6; }
+.item.active { background: #ede9fe; color: #7c3aed; }
+.icon { width: 22px; display: inline-flex; justify-content: center; }
+

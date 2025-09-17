@@ -20,14 +20,14 @@
     </a>
 
     <nav class="hidden md:flex gap-6 items-center">
-      <a class="hover:underline" routerLink="/">Pricing</a>
-      <a class="hover:underline" href="#">Integrations</a>
-      <a class="hover:underline" href="#">FAQs</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/">Pricing</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" href="#">Integrations</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" href="#">FAQs</a>
     </nav>
 
     <div class="flex items-center gap-3">
-      <a class="px-4 py-2 rounded border" routerLink="/login">Login</a>
-      <a class="px-4 py-2 rounded bg-indigo-600 text-white" routerLink="/signup">Get Started</a>
+      <a *ngIf="!isLoggedIn" class="px-4 py-2 rounded border" routerLink="/login">Login</a>
+      <a *ngIf="!isLoggedIn" class="px-4 py-2 rounded bg-indigo-600 text-white" routerLink="/signup">Get Started</a>
       <button class="md:hidden ml-2" (click)="toggle()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -38,9 +38,9 @@
 
   <div *ngIf="isOpen" class="md:hidden bg-white border-t">
     <div class="p-4 flex flex-col gap-3">
-      <a routerLink="/">Pricing</a>
-      <a href="#">Integrations</a>
-      <a href="#">FAQs</a>
+      <a *ngIf="!isLoggedIn" routerLink="/">Pricing</a>
+      <a *ngIf="!isLoggedIn" href="#">Integrations</a>
+      <a *ngIf="!isLoggedIn" href="#">FAQs</a>
     </div>
   </div>
 </header>

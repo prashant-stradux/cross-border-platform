@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   standalone: false
 })
 export class LoginComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService) {}
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -25,7 +27,8 @@ export class LoginComponent {
     this.isSubmitting = true;
     setTimeout(() => {
       this.isSubmitting = false;
-      alert('Logged in (demo)');
+      this.auth.login();
+      this.router.navigate(['/dashboard']);
     }, 800);
   }
 }

@@ -1,0 +1,40 @@
+<aside class="sidenav">
+  <div class="brand">
+    <span class="dot"></span>
+  </div>
+
+  <div class="profile">
+    <div class="name" title="{{ userName }}">{{ userName }}</div>
+    <div class="email">{{ userEmail }}</div>
+  </div>
+
+  <div class="section">GENERAL</div>
+  <nav class="menu">
+    <a class="item" routerLink="/dashboard" routerLinkActive="active">
+      <span class="icon">🗂</span>
+      <span>Dashboard</span>
+    </a>
+    <a class="item" routerLink="/requests">
+      <span class="icon">📄</span>
+      <span>Requests</span>
+    </a>
+    <a class="item" routerLink="/clients">
+      <span class="icon">👥</span>
+      <span>Clients</span>
+    </a>
+    <a class="item" routerLink="/profile" routerLinkActive="active">
+      <span class="icon">👤</span>
+      <span>Profile</span>
+    </a>
+    <a class="item" routerLink="/rewards">
+      <span class="icon">💲</span>
+      <span>Rewards</span>
+    </a>
+    <button class="item" (click)="logout()" type="button">
+      <span class="icon">🚪</span>
+      <span>Logout</span>
+    </button>
+  </nav>
+</aside>
+
+

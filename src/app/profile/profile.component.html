@@ -1,0 +1,165 @@
+<div class="profile-page">
+  <div class="sidebar">
+    <app-sidenav [userName]="'ISHAN MAHENDRABHAI SH...'" [userEmail]="'mail2ishanshah@gmail.com'"></app-sidenav>
+  </div>
+  <div class="content">
+    <div class="max-w-4xl mx-auto px-6 py-10">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Account</h1>
+        <div class="text-sm text-gray-500 mt-2">Dashboard • Profile • Account Settings</div>
+      </div>
+
+      <!-- Account Sub-Navigation -->
+      <div class="mb-8">
+        <nav class="flex space-x-8 border-b border-gray-200">
+          <button 
+            class="tab-button" 
+            [class.active]="activeTab === 'general'"
+            (click)="setActiveTab('general')">
+            <span class="icon">👤</span>
+            General
+          </button>
+          <button 
+            class="tab-button" 
+            [class.active]="activeTab === 'password'"
+            (click)="setActiveTab('password')">
+            <span class="icon">🔑</span>
+            Change Password
+          </button>
+          <button 
+            class="tab-button" 
+            [class.active]="activeTab === 'settings'"
+            (click)="setActiveTab('settings')">
+            <span class="icon">⚙️</span>
+            Settings
+          </button>
+        </nav>
+      </div>
+
+      <!-- General Tab Content -->
+      <div *ngIf="activeTab === 'general'" class="space-y-6">
+        <!-- User Information Card -->
+        <div class="card">
+          <h2 class="card-title">ISHAN MAHENDRABHAI SHAH</h2>
+          <div class="info-row">
+            <span class="label">Email:</span>
+            <span class="value">mail2ishanshah@gmail.com</span>
+            <button class="change-btn">Change</button>
+          </div>
+          <div class="info-row">
+            <span class="label">Phone:</span>
+            <span class="value">+91-9429904339</span>
+            <button class="change-btn">Change</button>
+          </div>
+          <div class="info-row">
+            <span class="label">Referred By:</span>
+            <span class="value">visitabhinav@gmail.com</span>
+          </div>
+        </div>
+
+        <!-- Indian Bank Details Card -->
+        <div class="card">
+          <h2 class="card-title">Indian Bank Details</h2>
+          <div class="info-row">
+            <span class="label">Account Name:</span>
+            <span class="value">ISHAN MAHENDRABHAI SHAH</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Account Number:</span>
+            <span class="value">72760100022012</span>
+          </div>
+          <div class="info-row">
+            <span class="label">IFSC:</span>
+            <span class="value">BARBODBVASN</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Bank Name:</span>
+            <span class="value">BANK OF BARODA</span>
+          </div>
+        </div>
+
+        <!-- What Do You Pay Card -->
+        <div class="card">
+          <h2 class="card-title">What Do You Pay?</h2>
+          <div class="info-row">
+            <span class="label">Fees:</span>
+            <span class="value">1%</span>
+          </div>
+          <div class="disclaimer">
+            Fees shown are indicative for USD. For other currencies, the same amounts are charged in the respective deposit currency.
+          </div>
+        </div>
+      </div>
+
+      <!-- Change Password Tab Content -->
+      <div *ngIf="activeTab === 'password'" class="space-y-6">
+        <div class="card">
+          <h2 class="card-title">Change Password</h2>
+          <p class="text-gray-600">Password change functionality will be implemented here.</p>
+        </div>
+      </div>
+
+      <!-- Settings Tab Content -->
+      <div *ngIf="activeTab === 'settings'" class="space-y-6">
+        <!-- Invoice Logo Card -->
+        <div class="card">
+          <h2 class="card-title">INVOICE LOGO</h2>
+          <div class="logo-upload">
+            <div class="upload-placeholder">
+              <div class="camera-icon">📷</div>
+              <div class="upload-text">Upload photo</div>
+            </div>
+            <div class="upload-info">Allowed *.jpeg, *.jpg, *.png, max size of 5 MB</div>
+            <button class="delete-btn">🗑️</button>
+          </div>
+        </div>
+
+        <!-- Activity Card -->
+        <div class="card">
+          <h2 class="card-title">ACTIVITY</h2>
+          <div class="toggle-row">
+            <div class="toggle-container">
+              <input type="checkbox" id="activity-toggle" class="toggle-input" checked>
+              <label for="activity-toggle" class="toggle-label">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-text">
+              Receive email for every status update. By default, you'll only receive important updates (Deposit in Virtual Account, Deposit in INR Account, e-FIRS, etc.)
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Theme Color Card -->
+        <div class="card">
+          <h2 class="card-title">INVOICE THEME COLOR</h2>
+          <div class="color-picker-row">
+            <label class="color-label">Invoice Hex</label>
+            <div class="color-input-group">
+              <div class="color-swatch" [style.background-color]="invoiceColor"></div>
+              <input 
+                type="text" 
+                class="color-input" 
+                [(ngModel)]="invoiceColor" 
+                placeholder="#553dd2">
+              <button class="reset-btn" (click)="resetColor()">↶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Save Changes Button -->
+        <div class="save-container">
+          <button class="save-btn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Help Button -->
+<div class="help-button">
+  <button class="help-btn">
+    <span class="help-icon">?</span>
+    <span class="help-text">Help</span>
+  </button>
+</div>
