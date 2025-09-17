@@ -1,6 +1,6 @@
 <div class="profile-page">
   <div class="sidebar">
-    <app-sidenav [userName]="'ISHAN MAHENDRABHAI SH...'" [userEmail]="'mail2ishanshah@gmail.com'"></app-sidenav>
+    <app-sidenav [userName]="user.name" [userEmail]="user.email"></app-sidenav>
   </div>
   <div class="content">
     <div class="max-w-4xl mx-auto px-6 py-10">
@@ -40,41 +40,41 @@
       <div *ngIf="activeTab === 'general'" class="space-y-6">
         <!-- User Information Card -->
         <div class="card">
-          <h2 class="card-title">ISHAN MAHENDRABHAI SHAH</h2>
+          <h2 class="card-title">{{ user.name }}</h2>
           <div class="info-row">
             <span class="label">Email:</span>
-            <span class="value">mail2ishanshah@gmail.com</span>
+            <span class="value">{{ user.email }}</span>
             <button class="change-btn">Change</button>
           </div>
           <div class="info-row">
             <span class="label">Phone:</span>
-            <span class="value">+91-9429904339</span>
+            <span class="value">{{ user.phone }}</span>
             <button class="change-btn">Change</button>
           </div>
-          <div class="info-row">
+          <div class="info-row" *ngIf="user.referredBy">
             <span class="label">Referred By:</span>
-            <span class="value">visitabhinav@gmail.com</span>
+            <span class="value">{{ user.referredBy }}</span>
           </div>
         </div>
 
         <!-- Indian Bank Details Card -->
         <div class="card">
-          <h2 class="card-title">Indian Bank Details</h2>
+          <h2 class="card-title">{{ bankInr.currency }} Bank Details</h2>
           <div class="info-row">
             <span class="label">Account Name:</span>
-            <span class="value">ISHAN MAHENDRABHAI SHAH</span>
+            <span class="value">{{ bankInr.accountName }}</span>
           </div>
           <div class="info-row">
             <span class="label">Account Number:</span>
-            <span class="value">72760100022012</span>
+            <span class="value">{{ bankInr.accountNumber }}</span>
           </div>
-          <div class="info-row">
+          <div class="info-row" *ngIf="bankInr.ifsc">
             <span class="label">IFSC:</span>
-            <span class="value">BARBODBVASN</span>
+            <span class="value">{{ bankInr.ifsc }}</span>
           </div>
           <div class="info-row">
             <span class="label">Bank Name:</span>
-            <span class="value">BANK OF BARODA</span>
+            <span class="value">{{ bankInr.bankName }}</span>
           </div>
         </div>
 

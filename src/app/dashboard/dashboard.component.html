@@ -2,44 +2,97 @@
   <div class="sidebar">
     <app-sidenav [userName]="'ISHAN MAHENDRABHAI SH...'" [userEmail]="'mail2ishanshah@gmail.com'"></app-sidenav>
   </div>
-  <div class="content max-w-7xl mx-auto px-6 py-10">
-    <div class="mb-8">
-      <h1 class="text-2xl font-semibold text-gray-900">Your Virtual Accounts</h1>
-      <div class="text-sm text-gray-500 mt-1">Dashboard • Accounts</div>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-white border rounded-xl p-5 shadow-sm">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="flex items-center gap-2">
-              <img src="https://flagcdn.com/us.svg" alt="US" class="h-5 w-7 rounded-sm border" />
-              <div class="font-medium text-gray-900">United States Dollar</div>
+  <div class="content">
+    <div class="container">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <div class="page-sub">Overview • Accounts</div>
+        </div>
+        <div class="head-actions">
+          <button class="btn btn-primary" (click)="generatePaymentLink()">Create Payment Link</button>
+          <button class="btn btn-ghost">Add Currency</button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Balance</div>
+          <div class="stat-value">${{ totalBalanceUsd | number:'1.2-2' }}</div>
+          <div class="stat-foot">Across all virtual accounts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value">${{ pendingUsd | number:'1.2-2' }}</div>
+          <div class="stat-foot warn">Awaiting settlement</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Last Deposit</div>
+          <div class="stat-value">${{ lastDepositUsd | number:'1.2-2' }}</div>
+          <div class="stat-foot">2 days ago</div>
+        </div>
+      </div>
+
+      <div class="main-grid">
+        <!-- Recent Activity -->
+        <div class="panel">
+          <div class="panel-head">
+            <h2 class="panel-title">Recent Activity</h2>
+            <a class="link">View all</a>
+          </div>
+          <div class="activity">
+            <div class="activity-item" *ngFor="let t of transactions">
+              <div class="activity-icon" [ngClass]="t.type">{{ t.type === 'deposit' ? '⬇' : t.type === 'payment' ? '💵' : t.type === 'refund' ? '↩' : '⚙' }}</div>
+              <div class="activity-info">
+                <div class="row-top">
+                  <div class="desc">{{ t.description }}</div>
+                  <div class="amount" [ngClass]="t.type">{{ t.currency }} {{ t.amount | number:'1.2-2' }}</div>
+                </div>
+                <div class="row-sub">
+                  <span class="time">{{ t.timestamp }}</span>
+                  <span class="status" [ngClass]="t.status">{{ t.status }}</span>
+                </div>
+              </div>
             </div>
-            <div class="text-xs text-indigo-600 mt-1">USD</div>
           </div>
         </div>
-        <div class="mt-6 text-gray-900">USD 0.00</div>
-        <div class="mt-4 text-right">
-          <button class="text-indigo-600 hover:text-indigo-700">›</button>
+
+        <!-- Account Details / Actions -->
+        <div class="panel">
+          <div class="panel-head">
+            <h2 class="panel-title">USD Account Details</h2>
+            <img src="https://flagcdn.com/us.svg" alt="US" class="flag" />
+          </div>
+          <div class="account-grid">
+            <div class="field">
+              <div class="label">Account Name</div>
+              <div class="value">{{ account.accountName }}</div>
+              <button class="copy" (click)="copy(account.accountName, 'name')">{{ copiedField === 'name' ? 'Copied' : 'Copy' }}</button>
+            </div>
+            <div class="field">
+              <div class="label">Account Number</div>
+              <div class="value mono">{{ account.accountNumber }}</div>
+              <button class="copy" (click)="copy(account.accountNumber, 'number')">{{ copiedField === 'number' ? 'Copied' : 'Copy' }}</button>
+            </div>
+            <div class="field">
+              <div class="label">Routing Number</div>
+              <div class="value mono">{{ account.routingNumber }}</div>
+              <button class="copy" (click)="copy(account.routingNumber, 'routing')">{{ copiedField === 'routing' ? 'Copied' : 'Copy' }}</button>
+            </div>
+            <div class="field">
+              <div class="label">IBAN</div>
+              <div class="value mono">{{ account.iban }}</div>
+              <button class="copy" (click)="copy(account.iban, 'iban')">{{ copiedField === 'iban' ? 'Copied' : 'Copy' }}</button>
+            </div>
+          </div>
+
+          <div class="help">
+            Share these details with payers to receive money directly to your USD virtual account.
+          </div>
         </div>
       </div>
-
-      <div class="bg-white border rounded-xl p-5 shadow-sm">
-        <div class="font-medium text-gray-900">Add Virtual Account</div>
-        <div class="text-xs text-indigo-600 mt-1">Add Virtual Bank Account of Available Currencies</div>
-        <div class="mt-3 flex items-center gap-2 text-xs text-gray-600">
-          <img src="https://flagcdn.com/gb.svg" class="h-4 w-6 rounded-sm border" />
-          <img src="https://flagcdn.com/eu.svg" class="h-4 w-6 rounded-sm border" />
-          <img src="https://flagcdn.com/ca.svg" class="h-4 w-6 rounded-sm border" />
-          <span class="text-indigo-600">+ 22 more</span>
-          <span class="ml-auto text-indigo-600 text-lg">+</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-10">
-      <button class="w-full md:w-auto block mx-auto border-2 border-indigo-300 hover:border-indigo-400 text-gray-800 rounded-xl py-5 px-8 font-semibold">View Account Details</button>
     </div>
   </div>
 </div>
