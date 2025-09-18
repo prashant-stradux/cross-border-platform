@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MOCK_DASHBOARD, MOCK_TRANSACTIONS, MOCK_BANK_USD } from '../core/mocks/mock-data';
+import { MOCK_DASHBOARD, MOCK_TRANSACTIONS, MOCK_BANK_USD, MOCK_USER } from '../core/mocks/mock-data';
 
 interface TransactionItem {
   id: string;
@@ -25,6 +25,9 @@ export class DashboardComponent {
 
   // Account details
   account = MOCK_BANK_USD;
+
+  // User (for sidenav)
+  user = MOCK_USER;
 
   // Recent activity
   transactions: TransactionItem[] = MOCK_TRANSACTIONS;
