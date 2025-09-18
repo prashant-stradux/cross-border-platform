@@ -1,4 +1,4 @@
-# Stradux — Angular Starter Repo
+# SwiftMoney — Angular Starter Repo
 
 This repository is a **git-ready starter** for an Angular app that combines the best features of Mulya and Skydo. It contains a minimal but runnable Angular project skeleton with Tailwind support and the core components (Header, Hero, Calculator) plus a mocked PricingService.
 
@@ -8,7 +8,7 @@ This repository is a **git-ready starter** for an Angular app that combines the 
 
 ```bash
 git clone <this-repo-url>
-cd stradux
+cd swiftmoney
 ```
 
 2. Install dependencies:

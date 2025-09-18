@@ -1,0 +1,149 @@
+<div class="requests-page">
+  <div class="sidebar">
+    <app-sidenav [userName]="user.name" [userEmail]="user.email"></app-sidenav>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">All Requests</h1>
+          <div class="breadcrumbs">Dashboard • Requests • List</div>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary" (click)="createQuickRequest()">
+            <span class="btn-icon">⚡</span>
+            Quick Request
+          </button>
+          <button class="btn btn-primary" (click)="createAdvancedRequest()">
+            <span class="btn-icon">+</span>
+            Advanced Request
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters Section -->
+      <div class="filters-section">
+        <div class="filters-row">
+          <div class="filter-group">
+            <label class="filter-label">Currency</label>
+            <select class="filter-select" [(ngModel)]="selectedCurrency">
+              <option value="">All Currencies</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="CAD">CAD</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">Status</label>
+            <select class="filter-select" [(ngModel)]="selectedStatus">
+              <option value="">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="completed">Completed</option>
+              <option value="failed">Failed</option>
+            </select>
+          </div>
+
+          <div class="filter-group search-group">
+            <label class="filter-label">Search</label>
+            <div class="search-input-wrapper">
+              <input 
+                type="text" 
+                class="search-input" 
+                placeholder="Search..." 
+                [(ngModel)]="searchTerm">
+              <span class="search-icon">🔍</span>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button class="btn btn-secondary" (click)="clearFilters()">
+              <span class="btn-icon">🗑️</span>
+              Clear
+            </button>
+            <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+            <button class="btn btn-primary" (click)="exportRequests()">Export</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Requests Table -->
+      <div class="table-container">
+        <table class="requests-table">
+          <thead>
+            <tr>
+              <th>Request Id</th>
+              <th>Client</th>
+              <th>Amount</th>
+              <th>INR Amount</th>
+              <th>Request Date</th>
+              <th>Status</th>
+              <th>Share Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let request of paginatedRequests">
+              <td class="request-id">{{ request.id }}</td>
+              <td class="client-name">{{ request.client }}</td>
+              <td class="amount">{{ request.currency }} {{ request.amount | number:'1.2-2' }}</td>
+              <td class="inr-amount">₹{{ request.inrAmount | number:'1.2-2' }}</td>
+              <td class="request-date">{{ request.requestDate }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="getStatusClass(request.status)">
+                  {{ request.status | titlecase }}
+                </span>
+              </td>
+              <td>
+                <button class="share-btn" (click)="copyShareLink(request.shareLink)">
+                  Copy Link
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="paginatedRequests.length === 0">
+              <td colspan="7" class="empty-state">
+                <div class="empty-message">
+                  <div class="empty-icon">📋</div>
+                  <div class="empty-text">No requests found</div>
+                  <div class="empty-subtext">Try adjusting your filters or create a new request</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-container">
+        <div class="pagination-info">
+          Showing {{ (currentPage - 1) * itemsPerPage + 1 }}-{{ getEndIndex() }} of {{ totalItems }}
+        </div>
+        <div class="pagination-controls">
+          <button 
+            class="pagination-btn" 
+            [disabled]="currentPage === 1"
+            (click)="goToPage(currentPage - 1)">
+            ←
+          </button>
+          <button 
+            class="pagination-btn" 
+            [disabled]="currentPage === totalPages"
+            (click)="goToPage(currentPage + 1)">
+            →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Help Button -->
+<div class="help-button">
+  <button class="help-btn">
+    <span class="help-icon">💬</span>
+    <span class="help-text">Help</span>
+  </button>
+</div>

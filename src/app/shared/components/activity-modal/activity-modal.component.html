@@ -1,0 +1,60 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="onBackdropClick($event)">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 class="modal-title">All Activities</h2>
+      <button class="close-btn" (click)="closeModal()">
+        <span class="close-icon">×</span>
+      </button>
+    </div>
+
+    <div class="modal-content">
+      <div class="activities-list">
+        <div class="activity-item" *ngFor="let activity of paginatedActivities">
+          <div class="activity-icon" [ngClass]="activity.type">
+            {{ getTypeIcon(activity.type) }}
+          </div>
+          <div class="activity-details">
+            <div class="activity-main">
+              <div class="activity-description">{{ activity.description }}</div>
+              <div class="activity-amount" [ngClass]="activity.type">
+                {{ activity.currency }} {{ activity.amount | number:'1.2-2' }}
+              </div>
+            </div>
+            <div class="activity-meta">
+              <span class="activity-time">{{ activity.timestamp }}</span>
+              <span class="activity-status" [ngClass]="getStatusClass(activity.status)">
+                {{ activity.status | titlecase }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-state" *ngIf="paginatedActivities.length === 0">
+          <div class="empty-icon">📋</div>
+          <div class="empty-text">No activities found</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer" *ngIf="totalPages > 1">
+      <div class="pagination-info">
+        Showing {{ (currentPage - 1) * itemsPerPage + 1 }}-{{ getEndIndex() }} of {{ totalItems }}
+      </div>
+      <div class="pagination-controls">
+        <button 
+          class="pagination-btn" 
+          [disabled]="currentPage === 1"
+          (click)="goToPage(currentPage - 1)">
+          ←
+        </button>
+        <span class="page-info">{{ currentPage }} of {{ totalPages }}</span>
+        <button 
+          class="pagination-btn" 
+          [disabled]="currentPage === totalPages"
+          (click)="goToPage(currentPage + 1)">
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly storageKey = 'stradux:isLoggedIn';
+  private readonly storageKey = 'swiftmoney:isLoggedIn';
   private readonly loggedIn$ = new BehaviorSubject<boolean>(this.readPersisted());
 
   get isLoggedIn$(): Observable<boolean> { return this.loggedIn$.asObservable(); }

@@ -1,0 +1,76 @@
+<div class="faqs-page">
+  <div class="container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Frequently Asked Questions</h1>
+        <p class="page-subtitle">Find answers to common questions about cross-border money transfers and Indian regulations</p>
+      </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Search FAQs..." 
+            [(ngModel)]="searchTerm"
+            (input)="onSearchChange($event.target.value)">
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-tabs">
+          <button 
+            *ngFor="let category of categories"
+            class="filter-tab"
+            [class.active]="selectedCategory === category.value"
+            (click)="onCategoryChange(category.value)">
+            {{ category.label }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs List -->
+    <div class="faqs-container">
+      <div class="faqs-list">
+        <div class="faq-item" *ngFor="let faq of filteredFAQs; let i = index">
+          <div class="faq-question">
+            <h3 class="question-text">{{ faq.question }}</h3>
+            <span class="category-badge" [ngClass]="'category-' + faq.category">
+              {{ getCategoryLabel(faq.category) }}
+            </span>
+          </div>
+          <div class="faq-answer">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+
+        <div class="empty-state" *ngIf="filteredFAQs.length === 0">
+          <div class="empty-icon">❓</div>
+          <div class="empty-text">No FAQs found</div>
+          <div class="empty-subtext">Try adjusting your search or filter criteria</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <div class="contact-card">
+        <div class="contact-icon">💬</div>
+        <div class="contact-content">
+          <h3>Still have questions?</h3>
+          <p>Our support team is here to help you with any questions about cross-border transfers and compliance.</p>
+          <div class="contact-actions">
+            <button class="btn btn-primary">Contact Support</button>
+            <button class="btn btn-secondary">Live Chat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

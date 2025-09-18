@@ -40,7 +40,7 @@
         <div class="panel">
           <div class="panel-head">
             <h2 class="panel-title">Recent Activity</h2>
-            <a class="link">View all</a>
+            <button class="link" (click)="openActivityModal()">View all</button>
           </div>
           <div class="activity">
             <div class="activity-item" *ngFor="let t of transactions">
@@ -96,5 +96,12 @@
     </div>
   </div>
 </div>
+
+<!-- Activity Modal -->
+<app-activity-modal 
+  [activities]="activitiesForModal"
+  [isOpen]="isActivityModalOpen"
+  (close)="closeActivityModal()">
+</app-activity-modal>
 
 

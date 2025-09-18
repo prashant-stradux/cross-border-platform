@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HeroComponent } from './shared/components/hero/hero.component';
 import { CalculatorComponent } from './shared/components/calculator/calculator.component';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import { ActivityModalComponent } from './shared/components/activity-modal/activity-modal.component';
 
 import { PricingService } from './core/services/pricing.service';
 
@@ -17,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RequestsComponent } from './requests/requests.component';
+import { FAQsComponent } from './faqs/faqs.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,11 +27,13 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'requests', component: RequestsComponent },
+  { path: 'faqs', component: FAQsComponent },
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeroComponent, CalculatorComponent, SidenavComponent, HomeComponent, LoginComponent, SignupComponent, DashboardComponent, ProfileComponent],
+  declarations: [AppComponent, HeaderComponent, HeroComponent, CalculatorComponent, SidenavComponent, ActivityModalComponent, HomeComponent, LoginComponent, SignupComponent, DashboardComponent, ProfileComponent, RequestsComponent, FAQsComponent],
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [PricingService],
   bootstrap: [AppComponent]
