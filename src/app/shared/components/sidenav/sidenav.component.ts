@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
+import { MOCK_USER } from '../../../core/mocks/mock-data';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,8 +10,8 @@ import { AuthService } from '../../../core/services/auth.service';
   standalone: false
 })
 export class SidenavComponent {
-  @Input() userName: string = 'ISHAN MAHENDRABHAI SH...';
-  @Input() userEmail: string = 'mail2ishanshah@gmail.com';
+  @Input() userName: string = MOCK_USER.name;
+  @Input() userEmail: string = MOCK_USER.email;
 
   constructor(private auth: AuthService, private router: Router) {}
 
