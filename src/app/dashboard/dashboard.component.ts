@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MOCK_DASHBOARD, MOCK_TRANSACTIONS, MOCK_BANK_USD, MOCK_USER } from '../core/mocks/mock-data';
+import { ActivityItem } from '../shared/components/activity-modal/activity-modal.component';
 
 interface TransactionItem {
   id: string;
@@ -32,6 +33,9 @@ export class DashboardComponent {
   // Recent activity
   transactions: TransactionItem[] = MOCK_TRANSACTIONS;
 
+  // Modal state
+  isActivityModalOpen = false;
+
   copiedField: string | null = null;
 
   copy(value: string, fieldKey: string) {
@@ -42,9 +46,30 @@ export class DashboardComponent {
   }
 
   generatePaymentLink(): void {
-    const link = `https://pay.stradux.app/r/${Math.random().toString(36).slice(2, 8)}`;
+    const link = `https://pay.swiftmoney.app/r/${Math.random().toString(36).slice(2, 8)}`;
     navigator.clipboard.writeText(link);
     alert('Payment link copied to clipboard');
+  }
+
+  openActivityModal(): void {
+    this.isActivityModalOpen = true;
+  }
+
+  closeActivityModal(): void {
+    this.isActivityModalOpen = false;
+  }
+
+  // Convert transactions to ActivityItem format for modal
+  get activitiesForModal(): ActivityItem[] {
+    return this.transactions.map(t => ({
+      id: t.id,
+      type: t.type,
+      currency: t.currency,
+      amount: t.amount,
+      description: t.description,
+      timestamp: t.timestamp,
+      status: t.status
+    }));
   }
 }
 

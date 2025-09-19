@@ -1,13 +1,130 @@
-<main class="min-h-screen bg-gray-50">
-  <app-hero></app-hero>
+<main class="home-page">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-title">Move money globally with <span>SwiftMoney</span></h1>
+        <p class="hero-sub">Open multi-currency virtual accounts, get paid like a local, and settle funds in INR — fast, compliant, and transparent.</p>
+        <div class="hero-ctas">
+          <a routerLink="/signup" class="btn btn-primary">Get Started</a>
+          <a routerLink="/login" class="btn btn-secondary">Sign In</a>
+        </div>
+        <div class="hero-trust">
+          <div class="avatars">
+            <span class="avatar" title="Alex">🧑🏻‍💻</span>
+            <span class="avatar" title="Priya">👩🏽‍💼</span>
+            <span class="avatar" title="Liam">🧑🏼‍🚀</span>
+            <span class="avatar" title="Aya">👩🏻‍🔬</span>
+          </div>
+          <div class="trust-text">Trusted by freelancers and businesses in 40+ countries</div>
+        </div>
+      </div>
 
-  <section class="max-w-6xl mx-auto p-6">
-    <h2 class="text-2xl font-semibold mb-4">Rates & Savings</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <app-calculator></app-calculator>
-      <div class="p-6 bg-white rounded shadow">
-        <h3 class="font-medium">Why this matters</h3>
-        <p class="mt-2 text-sm text-gray-600">Combines Mulya's zero-markup visibility and e-FIRS support with Skydo's flat-tier pricing and instant FIRA issuance — shows real savings vs banks.</p>
+      <div class="hero-art">
+        <div class="card-stack">
+          <div class="card usd">
+            <div class="card-head">
+              <img src="https://flagcdn.com/us.svg" alt="US" class="flag"/>
+              <span>USD Virtual Account</span>
+            </div>
+            <div class="card-body">
+              <div class="balance">$12,430.75</div>
+              <div class="meta">Updated a moment ago</div>
+            </div>
+          </div>
+          <div class="card eur">
+            <div class="card-head">
+              <img src="https://flagcdn.com/eu.svg" alt="EU" class="flag"/>
+              <span>EUR Virtual Account</span>
+            </div>
+            <div class="card-body">
+              <div class="balance">€3,210.00</div>
+              <div class="meta">Pending €820.00</div>
+            </div>
+          </div>
+          <div class="floating-badge">No hidden fees</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why teams choose SwiftMoney</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="icon">🏦</div>
+          <h3>Local account details</h3>
+          <p>Receive like a local in USD, EUR, GBP and more — no sender friction.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🧾</div>
+          <h3>e-FIRS/Bank docs</h3>
+          <p>Instant e-FIRS and compliant documentation for hassle-free settlements.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>Fast settlements</h3>
+          <p>Get paid in hours, not weeks. Transparent timelines and tracking.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔒</div>
+          <h3>Bank-grade security</h3>
+          <p>Fully encrypted, 2FA-enabled, compliant with RBI & global standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="steps">
+    <div class="container">
+      <h2 class="section-title">Start in three steps</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="badge">1</div>
+          <h3>Create your account</h3>
+          <p>Sign up, complete quick KYC, and choose your currencies.</p>
+        </div>
+        <div class="step">
+          <div class="badge">2</div>
+          <h3>Share account details</h3>
+          <p>Send local account details to clients across the US, EU, UK, and more.</p>
+        </div>
+        <div class="step">
+          <div class="badge">3</div>
+          <h3>Receive and settle</h3>
+          <p>Track payments in real-time and settle to INR at great rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonial-card">
+        <div class="quote">“SwiftMoney replaced 4 tools for our global invoicing. Clients pay faster and we close books quicker.”</div>
+        <div class="person">
+          <span class="avatar sm">👩🏽‍💼</span>
+          <div>
+            <div class="name">Priya, Founder at CraftHub</div>
+            <div class="role">Mumbai, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-card">
+      <h2 class="cta-title">Open your first virtual account today</h2>
+      <p class="cta-sub">It takes less than 5 minutes to get started.</p>
+      <div>
+        <a routerLink="/signup" class="btn btn-primary">Create Free Account</a>
+        <a routerLink="/faqs" class="btn btn-ghost">Read FAQs</a>
       </div>
     </div>
   </section>

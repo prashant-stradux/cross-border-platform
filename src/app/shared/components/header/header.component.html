@@ -5,7 +5,7 @@
         <span class="drop-shadow-lg">S</span>
       </div>
       <h1 class="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-500 font-extrabold text-3xl tracking-tight drop-shadow-sm flex items-center gap-2">
-        Stradux
+        SwiftMoney
         <span class="relative inline-block w-8 h-6 align-middle">
           <span 
             class="absolute left-0 top-0 text-lg transition-all duration-700 ease-in-out"
@@ -20,9 +20,9 @@
     </a>
 
     <nav class="hidden md:flex gap-6 items-center">
-      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/">Pricing</a>
-      <a *ngIf="!isLoggedIn" class="hover:underline" href="#">Integrations</a>
-      <a *ngIf="!isLoggedIn" class="hover:underline" href="#">FAQs</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/pricing">Pricing</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/integrations">Integrations</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/faqs">FAQs</a>
     </nav>
 
     <div class="flex items-center gap-3">
@@ -38,9 +38,9 @@
 
   <div *ngIf="isOpen" class="md:hidden bg-white border-t">
     <div class="p-4 flex flex-col gap-3">
-      <a *ngIf="!isLoggedIn" routerLink="/">Pricing</a>
-      <a *ngIf="!isLoggedIn" href="#">Integrations</a>
-      <a *ngIf="!isLoggedIn" href="#">FAQs</a>
+      <a *ngIf="!isLoggedIn" routerLink="/pricing">Pricing</a>
+      <a *ngIf="!isLoggedIn" routerLink="/integrations">Integrations</a>
+      <a *ngIf="!isLoggedIn" routerLink="/faqs">FAQs</a>
     </div>
   </div>
 </header>
