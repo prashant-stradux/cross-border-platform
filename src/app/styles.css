@@ -1,11 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html, body { height: 100%; }
-body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-
-/* Home page modern styles (moved here from src/app/styles.css so they load) */
+/* Home page modern styles */
 .home-page { background: #f9fafb; }
 .home-page .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -31,7 +24,7 @@ body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
 .card-stack { position: relative; width: 100%; max-width: 420px; }
 .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05); margin-bottom: 1rem; }
 .card-head { display: flex; align-items: center; gap: .5rem; font-weight: 700; color: #111827; }
-.flag { width: 24px; height: auto; border-radius: 2px; border: 1px solid #e5e7eb; }
+.flag { width: 20px; height: 14px; border-radius: 2px; border: 1px solid #e5e7eb; }
 .card-body { margin-top: .5rem; }
 .balance { font-size: 1.5rem; font-weight: 800; color: #111827; }
 .meta { font-size: .75rem; color: #6b7280; }

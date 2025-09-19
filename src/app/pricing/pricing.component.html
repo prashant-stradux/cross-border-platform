@@ -1,0 +1,51 @@
+<div class="pricing-page">
+  <div class="container">
+    <section class="hero">
+      <h1 class="title">Transparent pricing. Better than the market.</h1>
+      <p class="subtitle">Pay less than traditional providers and get real-time FX with no hidden fees.</p>
+      <div class="value-cards">
+        <div class="value-card">
+          <div class="label">FX Rate</div>
+          <div class="value">{{ fxRate }}</div>
+        </div>
+        <div class="value-card">
+          <div class="label">Transfer Fee</div>
+          <div class="value">{{ transferFee }}</div>
+        </div>
+        <div class="value-card highlight">
+          <div class="label">You save</div>
+          <div class="value">up to 35%</div>
+          <div class="note">vs typical market rates</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison">
+      <h2 class="section-title">How we compare</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>SwiftMoney</th>
+              <th>Competitor A</th>
+              <th>Competitor B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of features">
+              <td class="feature">{{ f.label }}</td>
+              <td class="us">{{ f.swiftmoney }}</td>
+              <td>{{ f.competitorA }}</td>
+              <td>{{ f.competitorB }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cta">
+        <a routerLink="/signup" class="btn btn-primary">Start for Free</a>
+        <a routerLink="/faqs" class="btn btn-ghost">See FAQs</a>
+      </div>
+    </section>
+  </div>
+</div>

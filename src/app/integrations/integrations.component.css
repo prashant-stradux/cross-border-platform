@@ -1,0 +1,37 @@
+.integrations-page { background: #f9fafb; min-height: 100vh; padding: 2rem 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+.page-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.title { margin: 0; font-size: 2rem; font-weight: 800; color: #111827; }
+.subtitle { margin: .25rem 0 0; color: #6b7280; }
+
+.search-box { position: relative; width: 320px; max-width: 100%; }
+.search-input { width: 100%; padding: .75rem 1rem .75rem 2.5rem; border: 1px solid #d1d5db; border-radius: .75rem; }
+.search-input:focus { outline: none; border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.12); }
+.icon { position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); color: #6b7280; }
+
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); display: flex; flex-direction: column; position: relative; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+.card:hover { box-shadow: 0 8px 20px rgba(0,0,0,.08); transform: translateY(-1px); }
+
+/* Top-right chip with building avatar */
+.soon-chip { position: absolute; top: .75rem; right: .75rem; display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .55rem; border-radius: 9999px; border: 1px solid #e5e7eb; background: #f9fafb; color: #6b7280; font-weight: 700; font-size: .72rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.soon-avatar { width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #e5e7eb; border-radius: 9999px; box-shadow: 0 1px 1px rgba(0,0,0,.05) inset; }
+.soon-text { white-space: nowrap; }
+
+.card-head { display: flex; align-items: center; gap: .75rem; margin-bottom: .5rem; }
+.logo { width: 28px; height: 28px; object-fit: contain; }
+.name { font-weight: 700; color: #111827; }
+.desc { color: #4b5563; font-size: .95rem; margin: .25rem 0 1rem; }
+.actions { margin-top: auto; }
+
+.btn { min-width: 140px; height: 40px; padding: .6rem 1rem; border-radius: .5rem; border: 1px solid #e5e7eb; font-weight: 700; background: #f3f4f6; color: #6b7280; cursor: not-allowed; white-space: nowrap; box-shadow: inset 0 1px 0 rgba(255,255,255,.4); }
+
+.help { text-align: center; color: #6b7280; margin-top: 1.5rem; }
+
+@media (max-width: 900px){ .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px){
+  .grid { grid-template-columns: 1fr; }
+  .page-head { flex-direction: column; align-items: flex-start; }
+  .search-box { width: 100%; }
+}

@@ -1,0 +1,35 @@
+<div class="integrations-page">
+  <div class="container">
+    <div class="page-head">
+      <div>
+        <h1 class="title">Integrations</h1>
+        <p class="subtitle">Connect your favorite freelancing platforms to automate invoicing and payments.</p>
+      </div>
+      <div class="search-box">
+        <span class="icon">🔍</span>
+        <input type="text" class="search-input" placeholder="Search platforms..." [(ngModel)]="search">
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card" *ngFor="let p of filteredPlatforms">
+        <div class="soon-chip">
+          <span class="soon-avatar" aria-hidden="true">👷‍♂️</span>
+          <span class="soon-text">Coming soon</span>
+        </div>
+        <div class="card-head">
+          <img [src]="p.logo" [alt]="p.name" class="logo"/>
+          <div class="name">{{ p.name }}</div>
+        </div>
+        <p class="desc">{{ p.description }}</p>
+        <div class="actions">
+          <button class="btn" disabled>Connect</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="help">
+      Looking for another integration? <a routerLink="/faqs">Tell us</a> what to add next.
+    </div>
+  </div>
+</div>

@@ -20,6 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestsComponent } from './requests/requests.component';
 import { FAQsComponent } from './faqs/faqs.component';
+import { IntegrationsComponent } from './integrations/integrations.component';
+import { PricingComponent } from './pricing/pricing.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,12 +30,14 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'requests', component: RequestsComponent },
+  { path: 'integrations', component: IntegrationsComponent },
+  { path: 'pricing', component: PricingComponent },
   { path: 'faqs', component: FAQsComponent },
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeroComponent, CalculatorComponent, SidenavComponent, ActivityModalComponent, HomeComponent, LoginComponent, SignupComponent, DashboardComponent, ProfileComponent, RequestsComponent, FAQsComponent],
+  declarations: [AppComponent, HeaderComponent, HeroComponent, CalculatorComponent, SidenavComponent, ActivityModalComponent, HomeComponent, LoginComponent, SignupComponent, DashboardComponent, ProfileComponent, RequestsComponent, FAQsComponent, IntegrationsComponent, PricingComponent],
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [PricingService],
   bootstrap: [AppComponent]

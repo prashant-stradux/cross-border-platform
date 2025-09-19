@@ -20,8 +20,8 @@
     </a>
 
     <nav class="hidden md:flex gap-6 items-center">
-      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/">Pricing</a>
-      <a *ngIf="!isLoggedIn" class="hover:underline" href="#">Integrations</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/pricing">Pricing</a>
+      <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/integrations">Integrations</a>
       <a *ngIf="!isLoggedIn" class="hover:underline" routerLink="/faqs">FAQs</a>
     </nav>
 
@@ -38,8 +38,8 @@
 
   <div *ngIf="isOpen" class="md:hidden bg-white border-t">
     <div class="p-4 flex flex-col gap-3">
-      <a *ngIf="!isLoggedIn" routerLink="/">Pricing</a>
-      <a *ngIf="!isLoggedIn" href="#">Integrations</a>
+      <a *ngIf="!isLoggedIn" routerLink="/pricing">Pricing</a>
+      <a *ngIf="!isLoggedIn" routerLink="/integrations">Integrations</a>
       <a *ngIf="!isLoggedIn" routerLink="/faqs">FAQs</a>
     </div>
   </div>
