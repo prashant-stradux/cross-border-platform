@@ -1,4 +1,4 @@
-name: Deploy Angular to S3 + CloudFront (Simple)
+name: Deploy Angular app
 
 on:
   # push:
@@ -24,7 +24,7 @@ jobs:
       - name: Clean and build Angular
         run: |
           rm -rf dist
-          npm run build -- --configuration production
+          npm run build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
